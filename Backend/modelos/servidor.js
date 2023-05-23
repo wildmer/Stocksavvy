@@ -1,9 +1,11 @@
 import conexion from "../baseDeDatos/configuracion.js";
 import cors from 'cors'
 import express from "express";
+import * as dotenv from 'dotenv'
 import rutasusuarios from "../rutas/usuarios.js";
 
-class servidor{
+dotenv.config()
+class servidor {
     constructor(){
         this.app=express()
         this.app.use(express.json())
@@ -15,18 +17,17 @@ class servidor{
         await conexion()
     }
     rutas(){
-        
-        this.app.use("/usuario",rutasusuarios)
-        this.app.use("/", (req,res) => {
-            res.send('life')
-        })
+        this.app.use("/usuario", rutasusuarios)
+            this.app.use("/", (req,res) => {
+                res.send('life')
+            })
     }
+
     listen(){
-        this.app.listen("3100",()=>{
-            console.log("servidor en linea")
+        this.app.listen(process.env.PORT,()=>{
+            console.log("Escuchando puerto 4100 ")
         })
     }
-  
 }
 
 export default servidor
