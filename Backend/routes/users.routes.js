@@ -1,32 +1,32 @@
 import { Router } from "express";
 import userCtrl from "../controllers/users.controller.js";
-import userVali from "../validations/user.validation.js"
+import userVali from "../validations/user.validation.js";
 
 const {
-    getUsers,
-    loginUser,
-    registerUser,
-    updateUser
-} = userCtrl
-
+  getUsers,
+  getUserId,
+  loginUser,
+  registerUser,
+  updateUser,
+  activeUser,
+  inactiveUser,
+} = userCtrl;
 
 const {
-    validateToken,
-    validateLogin,
-    validateRegiter,
-    validateUpdate
-} = userVali
+  validateToken,
+  validateLogin,
+  validateRegister,
+  validateUpdate,
+  validateUser,
+} = userVali;
 
-const routesUsers = Router() 
+const routesUsers = Router();
+routesUsers.get("/:id", validateUser, getUserId);
+routesUsers.get("/", validateToken, getUsers);
+routesUsers.post("/login", validateLogin, loginUser);
+routesUsers.post("/register", validateRegister, registerUser);
+routesUsers.put("/update/:id", validateUpdate, updateUser);
+routesUsers.put("/active/:id", validateUser, activeUser);
+routesUsers.put("/inactive/:id", validateUser, inactiveUser);
 
-routesUsers.get("/",validateToken, getUsers)
-routesUsers.post("/login",validateLogin, loginUser)
-routesUsers.post('/register',validateRegiter, registerUser)
-routesUsers.put("/update/:id",validateUpdate, updateUser)
-
-
-
-export default routesUsers
-
-
-
+export default routesUsers;

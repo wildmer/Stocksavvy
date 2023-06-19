@@ -1,15 +1,13 @@
+import Login from "../components/Login.vue";
 
-import Login from "../components/Login.vue"
+import Home from "../components/Home.vue";
 
-import Home from "../components/Home.vue"
-
-import Movimientos from "../components/Movimientos.vue"
+import Movimientos from "../components/Movimientos.vue";
 
 export const routes = [
-    {path: "/", component:Login},
-    
-    {path: "/Home", component:Home},
+  { path: "/", component: Login },
 
-    {path: "/Movimientos", component:Movimientos},
+  { path: "/Home", component: Home },
 
-]
+  { path: "/Movimientos", component: Movimientos },
+];

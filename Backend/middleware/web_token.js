@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import UserModel from "../models/users.js"
+import UserModel from "../models/users.js";
 
 const webToken = {};
 
@@ -12,7 +12,7 @@ webToken.generateToken = async (user) => {
   try {
     const token = jwt.sign(payload, process.env.SECRET_PASS_JWT, {
       expiresIn: "2d",
-      algorithm: "ES256",
+      algorithm: "HS256",
     });
 
     return token;
@@ -27,17 +27,18 @@ webToken.validateToken = async (token, isAdmin = true) => {
 
   try {
     const result = jwt.verify(token, process.env.SECRET_PASS_JWT, {
-      algorithm: "ES256",
+      algorithm: "HS256",
     });
 
-    let user = await UserModel.findById(result.id, {status:1})
+    let user = await UserModel.findById(result.id, { status: 1 });
 
-    if(!user) throw new Error('Usuario no existe')
+    if (!user) throw new Error("Usuario no existe");
 
-    if(isAdmin && user.role == "USER") throw new Error('No tiene permisos para realizar esta accion')
-
-  } catch (error) {throw new Error('Token invalido')}
+    if (isAdmin && user.role == "USER")
+      throw new Error("No tiene permisos para realizar esta accion");
+  } catch (error) {
+    throw new Error("Token invalido");
+  }
 };
 
-
-export default webToken
+export default webToken;

@@ -1,36 +1,58 @@
 <template>
   <div class="q-pa-md fullscreen">
-    <q-layout view="lHh lpr lFf" container style="height: 100%" class="todo rounded-borders">
+    <q-layout
+      view="lHh lpr lFf"
+      container
+      style="height: 100%"
+      class="todo rounded-borders"
+    >
       <q-header class="bg-grey-3 text-primary">
         <q-toolbar>
           <q-toolbar-title class="text-center">
             <q-avatar class="imgg">
               <img
-                src="https://3.bp.blogspot.com/-N15hLdeFmso/Ws09d3hwbwI/AAAAAAAAApM/-rAuDQHp518qlUeXmO_-tt3kmhAfCL1SwCK4BGAYYCw/s1600/1024px-Sena_Colombia_logo.svg.png">
+                src="https://3.bp.blogspot.com/-N15hLdeFmso/Ws09d3hwbwI/AAAAAAAAApM/-rAuDQHp518qlUeXmO_-tt3kmhAfCL1SwCK4BGAYYCw/s1600/1024px-Sena_Colombia_logo.svg.png"
+              />
             </q-avatar>
 
             <q-avatar class="imggh">
               <img
-                src="https://i.ibb.co/273xPKP/Logo.jpg" style="font-size: xx-large;">
+                src="https://i.ibb.co/273xPKP/Logo.jpg"
+                style="font-size: xx-large"
+              />
             </q-avatar>
 
             <router-link to="/">
-            <q-btn class="iconi" flat round dense icon="logout" />
-          </router-link>
-            <q-tabs no-caps active-color="primary" indicator-color="transparent" class="conbot text-grey-8" v-model="tab">
-              
+              <q-btn class="iconi" flat round dense icon="logout" />
+            </router-link>
+            <q-tabs
+              no-caps
+              active-color="primary"
+              indicator-color="transparent"
+              class="conbot text-grey-8"
+              v-model="tab"
+            >
               <router-link to="/Home">
-                <q-tab name="Home" label="Home" style="color: black;" class="home"/>
+                <q-tab
+                  name="Home"
+                  label="Home"
+                  style="color: black"
+                  class="home"
+                />
               </router-link>
-              
-              
-              <q-tab name="Movimientos"  style="color: black;" label="Movimientos ▽">
+
+              <q-tab
+                name="Movimientos"
+                style="color: black"
+                label="Movimientos ▽"
+              >
                 <q-menu>
                   <q-list dense>
                     <router-link to="/Movimientos">
-                    <q-item clickable>
-                      <q-item-label>Reintegros</q-item-label>
-                    </q-item></router-link>
+                      <q-item clickable>
+                        <q-item-label>Reintegros</q-item-label>
+                      </q-item></router-link
+                    >
                     <q-item clickable>
                       <q-item-label>Option 2</q-item-label>
                     </q-item>
@@ -41,7 +63,11 @@
                 </q-menu>
               </q-tab>
 
-              <q-tab name="Mantenimiento" style="color: black;" label="Mantenimiento ▽">
+              <q-tab
+                name="Mantenimiento"
+                style="color: black"
+                label="Mantenimiento ▽"
+              >
                 <q-menu>
                   <q-list dense>
                     <q-item clickable>
@@ -57,7 +83,7 @@
                 </q-menu>
               </q-tab>
 
-              <q-tab name="Reportes" style="color: black;" label="Reportes ▽">
+              <q-tab name="Reportes" style="color: black" label="Reportes ▽">
                 <q-menu>
                   <q-list dense>
                     <q-item clickable>
@@ -73,7 +99,11 @@
                 </q-menu>
               </q-tab>
 
-              <q-tab name="Inventario"  style="color: black;" label="Inventario ▽">
+              <q-tab
+                name="Inventario"
+                style="color: black"
+                label="Inventario ▽"
+              >
                 <q-menu>
                   <q-list dense>
                     <q-item clickable>
@@ -88,7 +118,6 @@
                   </q-list>
                 </q-menu>
               </q-tab>
-
             </q-tabs>
           </q-toolbar-title>
         </q-toolbar>
@@ -105,27 +134,26 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref } from "vue";
 
 export default {
   setup() {
     return {
-      tab: ref('images')
-    }
-  }
-}
+      tab: ref("images"),
+    };
+  },
+};
 </script>
 
 <style scoped>
-
-.home{
-background-color: #968ef5;
+.home {
+  background-color: #968ef5;
 }
 
 .image-container {
   width: 90%;
   height: 87vh;
-  background-image: url('https://picsum.photos/800/600');
+  background-image: url("https://picsum.photos/800/600");
   background-size: cover;
   background-position: center;
   align-items: center;
@@ -137,7 +165,7 @@ background-color: #968ef5;
   margin: 14px;
 }
 
-.imggh{
+.imggh {
   position: absolute;
   margin-left: -589px;
   margin-top: 10px;
@@ -153,7 +181,6 @@ background-color: #968ef5;
 }
 
 @media (max-width: 600px) {
-
   /* ajustar para pantallas más pequeñas */
   .conbot {
     margin-left: 50px;
@@ -194,7 +221,4 @@ html {
     max-width: 100%;
   }
 }
-
-
-
 </style>

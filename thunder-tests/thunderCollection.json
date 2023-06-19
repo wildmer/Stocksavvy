@@ -1,0 +1,80 @@
+[
+  {
+    "_id": "6bf5e141-b311-4135-9c69-9ea1434e876e",
+    "colName": "Stocksavvy",
+    "created": "2023-06-18T04:46:47.216Z",
+    "sortNum": 10000,
+    "folders": [
+      {
+        "_id": "6e4e270c-f695-4bcf-a14a-b48a8d73c3e4",
+        "name": "Users",
+        "containerId": "",
+        "created": "2023-06-18T04:46:57.000Z",
+        "sortNum": 10000
+      },
+      {
+        "_id": "094c361b-72f3-495f-ac2e-27d6a71baf1e",
+        "name": "Business",
+        "containerId": "",
+        "created": "2023-06-19T14:01:40.104Z",
+        "sortNum": 20000
+      },
+      {
+        "_id": "862aea54-6f97-4391-8706-c8904e9af952",
+        "name": "Categories",
+        "containerId": "",
+        "created": "2023-06-19T14:07:15.911Z",
+        "sortNum": 30000
+      },
+      {
+        "_id": "36b98523-c1ea-4c69-8b4f-846726fe725e",
+        "name": "Entries",
+        "containerId": "",
+        "created": "2023-06-19T14:11:29.371Z",
+        "sortNum": 40000
+      },
+      {
+        "_id": "bc08f418-2a00-4cc6-bb15-161b445f820a",
+        "name": "Outs",
+        "containerId": "",
+        "created": "2023-06-19T14:15:00.860Z",
+        "sortNum": 50000
+      },
+      {
+        "_id": "dbfe008a-ba27-4bca-b720-fabbf57333dd",
+        "name": "Products",
+        "containerId": "",
+        "created": "2023-06-19T14:33:11.693Z",
+        "sortNum": 60000
+      },
+      {
+        "_id": "170d1d1a-4d53-47d6-beab-93b7451a4723",
+        "name": "Providers",
+        "containerId": "",
+        "created": "2023-06-19T14:42:21.862Z",
+        "sortNum": 70000
+      },
+      {
+        "_id": "7833e5f9-737b-4258-ad1f-5795c87c3e35",
+        "name": "Refunds",
+        "containerId": "",
+        "created": "2023-06-19T14:48:29.254Z",
+        "sortNum": 80000
+      },
+      {
+        "_id": "f3ee5309-7ab5-4a80-8550-402142f83ab9",
+        "name": "Roles",
+        "containerId": "",
+        "created": "2023-06-19T14:54:43.975Z",
+        "sortNum": 90000
+      },
+      {
+        "_id": "48cc0bde-e3f9-4fa1-9f10-09d483d55a19",
+        "name": "Unit Measurements",
+        "containerId": "",
+        "created": "2023-06-19T14:56:58.693Z",
+        "sortNum": 100000
+      }
+    ]
+  }
+]

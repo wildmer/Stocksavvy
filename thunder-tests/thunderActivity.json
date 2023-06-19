@@ -1,0 +1,21 @@
+[
+  {
+    "_id": "866b1058-408c-479a-a97b-d8362332943c",
+    "colId": "history",
+    "containerId": "",
+    "name": "{{URL}}/api/user/login",
+    "url": "{{URL}}/api/user/login",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-06-18T04:49:06.700Z",
+    "modified": "2023-06-18T04:49:06.700Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Raul Yesid\",\n  \"email\":\"test@gmail.com\",\n  \"password\":\"123Admin\"\n}",
+      "form": []
+    },
+    "tests": []
+  }
+]

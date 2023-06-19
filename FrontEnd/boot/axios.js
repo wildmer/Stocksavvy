@@ -1,5 +1,5 @@
-import axios from 'axios';
+import axios from "axios";
 
-const api = axios.create({ baseURL: 'https://softwaretrapiche.onrender.com' });
+const api = axios.create({ baseURL: "https://softwaretrapiche.onrender.com" });
 
-export {api}
+export { api };
