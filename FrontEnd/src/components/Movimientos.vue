@@ -166,16 +166,10 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref } from "vue";
+let tab = ref("images")
 
-export default {
-  setup() {
-    return {
-      tab: ref("images"),
-    };
-  },
-};
 </script>
 
 <style scoped>

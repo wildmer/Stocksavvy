@@ -1,13 +1,14 @@
 import { createApp } from "vue";
-import { Quasar, Notify } from "quasar";
 import { createPinia } from "pinia";
-// import {axios } from 'axios'
+import { Quasar, Notify } from "quasar";
+import { createRouter, createWebHashHistory } from "vue-router";
+import { routes } from "./routes/routes.js";
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+// import { axios } from 'axios'
 
 // import './style.css'
 
 import App from "./App.vue";
-import { createRouter, createWebHashHistory } from "vue-router";
-import { routes } from "./routes/routes.js";
 // Import icon libraries
 import "@quasar/extras/material-icons/material-icons.css";
 import "@quasar/extras/fontawesome-v6/fontawesome-v6.css";
@@ -15,6 +16,8 @@ import "@quasar/extras/bootstrap-icons/bootstrap-icons.css";
 // vamos a crear un objeto de vue router
 
 const pinia = createPinia();
+pinia.use(piniaPluginPersistedstate)
+const app = createApp(App);
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -24,7 +27,6 @@ const router = createRouter({
 // Import Quasar css
 import "quasar/src/css/index.sass";
 
-const app = createApp(App);
 //AXIOS
 // const axiosInstance = axios.create({
 //   baseURL: 'http://localhost:4501' // Aquí debes poner la URL de tu servidor backend
@@ -48,7 +50,7 @@ app.use(Quasar, {
   },
 });
 // app.use(axios)
-app.use(pinia);
 app.use(router);
+app.use(pinia);
 
 app.mount("#app");

@@ -1,17 +1,12 @@
 import { defineStore } from "pinia";
 // import axios from "axios";
-import { api } from "../../boot/axios.js"
-
-
+import {api} from "../../boot/axios.js"
 // import { login } from "../../api/users.api";
-export const useUserStore = defineStore("user", {
+export const useProductsStore = defineStore("products", {
     state: () => ({
         userData: ":)",
         token: null,
     }),
-
-    persist: true,
-
 
 
     actions: {
@@ -20,16 +15,15 @@ export const useUserStore = defineStore("user", {
             this.token = token;
         },
 
-        async getUsers() {
+        async getProducts() {
             try {
-                // console.log(this.token);
-                const resp = await api.get('/api/user', {
+                const resp = await api.get('/api/products', {
                     headers: {
                         'Content-Type': 'application/json',
                         'token': this.token
                     }
                 });
-                return resp.data.users
+                return resp.data.products
 
             } catch (error) {
                 console.log(error);
@@ -37,18 +31,18 @@ export const useUserStore = defineStore("user", {
             }
         },
 
-        async addUser(datos) {
+        async addProducts(datos) {
             console.log('datos' + datos);
             console.log(JSON.stringify(datos))
             try {
-                const resp = await api.post('/api/user/register',
-                    datos, {
+                const resp = await api.post('/api/products/register',
+                    datos
+                , {
                     headers: {
                         'Content-Type': 'application/json',
                         'token': this.token
                     }
-                }
-                )
+                });
                 return resp
 
             } catch (error) {
@@ -56,17 +50,17 @@ export const useUserStore = defineStore("user", {
                 return error
             }
         },
-        async editUser(id, datos) {
+        async editProducts(id, datos) {
             try {
                 console.log(datos);
-                const resp = await api.put(`/api/user/update/${id}`,
-                    datos, {
+                const resp = await api.put(`/api/products/update/${id}`,
+                    datos
+                , {
                     headers: {
                         'Content-Type': 'application/json',
                         'token': this.token
                     }
-                }
-                )
+                });
                 return resp
 
             } catch (error) {
@@ -75,14 +69,14 @@ export const useUserStore = defineStore("user", {
             }
 
         },
-        async activeUser(id) {
+        async activeProducts(id) {
             try {
-                const resp = await api.put(`/api/user/active/${id}`, {}, {
+                const resp = await api.put(`/api/products/active/${id}`, {
                     headers: {
                         'Content-Type': 'application/json',
                         'token': this.token
                     }
-                })
+                });
                 return resp
 
 
@@ -92,34 +86,20 @@ export const useUserStore = defineStore("user", {
             }
 
         },
-        async inactiveUser(id) {
+        async inactiveProducts(id) {
             try {
-                const resp = await api.put(`/api/user/inactive/${id}`, {}, {
+                const resp = await api.put(`/api/products/inactive/${id}`, {
                     headers: {
                         'Content-Type': 'application/json',
                         'token': this.token
                     }
-                })
+                });
                 return resp
 
             } catch (error) {
                 console.log(error);
                 return error
             }
-
-        },
-        async login(datos) {
-            // console.log(JSON.stringify(datos))
-
-            // try {
-            const resp = await api.post(`api/user/login`, datos)
-            this.token = resp.data.token;
-            return resp
-
-            // } catch (error) {
-            //     console.log(error);
-            //     return error
-            // }
 
         }
 

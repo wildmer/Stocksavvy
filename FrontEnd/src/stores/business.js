@@ -4,13 +4,13 @@ import { api } from "../../boot/axios.js"
 
 
 // import { login } from "../../api/users.api";
-export const useUserStore = defineStore("user", {
+export const useBusinessStore = defineStore("business", {
     state: () => ({
         userData: ":)",
         token: null,
     }),
-
-    persist: true,
+    
+  persist: true,
 
 
 
@@ -20,16 +20,16 @@ export const useUserStore = defineStore("user", {
             this.token = token;
         },
 
-        async getUsers() {
+        async getBusiness() {
             try {
                 // console.log(this.token);
-                const resp = await api.get('/api/user', {
+                const resp = await api.get('/api/business', {
                     headers: {
                         'Content-Type': 'application/json',
                         'token': this.token
                     }
                 });
-                return resp.data.users
+                return resp.data.business
 
             } catch (error) {
                 console.log(error);
@@ -37,11 +37,11 @@ export const useUserStore = defineStore("user", {
             }
         },
 
-        async addUser(datos) {
+        async addBusiness(datos) {
             console.log('datos' + datos);
             console.log(JSON.stringify(datos))
             try {
-                const resp = await api.post('/api/user/register',
+                const resp = await api.post('/api/business/register',
                     datos, {
                     headers: {
                         'Content-Type': 'application/json',
@@ -56,10 +56,10 @@ export const useUserStore = defineStore("user", {
                 return error
             }
         },
-        async editUser(id, datos) {
+        async editBusiness(id, datos) {
             try {
                 console.log(datos);
-                const resp = await api.put(`/api/user/update/${id}`,
+                const resp = await api.put(`/api/business/update/${id}`,
                     datos, {
                     headers: {
                         'Content-Type': 'application/json',
@@ -75,9 +75,9 @@ export const useUserStore = defineStore("user", {
             }
 
         },
-        async activeUser(id) {
+        async activeBusiness(id) {
             try {
-                const resp = await api.put(`/api/user/active/${id}`, {}, {
+                const resp = await api.put(`/api/business/active/${id}`, {}, {
                     headers: {
                         'Content-Type': 'application/json',
                         'token': this.token
@@ -92,9 +92,9 @@ export const useUserStore = defineStore("user", {
             }
 
         },
-        async inactiveUser(id) {
+        async inactiveBusiness(id) {
             try {
-                const resp = await api.put(`/api/user/inactive/${id}`, {}, {
+                const resp = await api.put(`/api/business/inactive/${id}`, {}, {
                     headers: {
                         'Content-Type': 'application/json',
                         'token': this.token
@@ -106,20 +106,6 @@ export const useUserStore = defineStore("user", {
                 console.log(error);
                 return error
             }
-
-        },
-        async login(datos) {
-            // console.log(JSON.stringify(datos))
-
-            // try {
-            const resp = await api.post(`api/user/login`, datos)
-            this.token = resp.data.token;
-            return resp
-
-            // } catch (error) {
-            //     console.log(error);
-            //     return error
-            // }
 
         }
 

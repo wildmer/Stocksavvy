@@ -13,7 +13,7 @@
         square
         filled
         class="my-btn"
-        v-model="text"
+        v-model="email"
         label="Correo Electronico"
       />
       <br />
@@ -34,9 +34,10 @@
       </q-input>
       <br />
       <div class="button-container">
-        <router-link to="/Home">
-          <q-btn :ripple="{ center: true }" color="dark" label="Entrar" no-caps
-        /></router-link>
+        <!-- <router-link to="/Home"> -->
+          <q-btn @click="login()" :ripple="{ center: true }" color="dark" label="Entrar" no-caps
+        />
+      <!-- </router-link> -->
       </div>
     </div>
     <div class="mitad-izquierda">
@@ -49,23 +50,53 @@
         </q-avatar>
       </div>
     </div>
-    <router-view></router-view>
+    <!-- <router-view></router-view> -->
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+import { useUserStore } from "../../src/stores/user.js";
+const store = useUserStore();
+const router = useRouter();
 
-export default {
-  setup() {
-    return {
-      password: ref(""),
-      email: ref(""),
-      isPwd: ref(true),
-      isDisabled: true,
-    };
-  },
-};
+
+
+// getOrders();
+let password = ref("")
+let email = ref("")
+let isPwd = ref(true)
+let isDisabled = true
+
+async function login() {
+  let info = {
+  "email":email.value,
+  "password":password.value
+}
+  let res = await store.login(info)
+
+  
+  if (res.data.token) {
+    router.push('/Home')
+  } else {
+    console.log(res.data.msg);
+  }
+
+  // if (res.response.data.msg == "Error in the validations") {
+  //   console.log(2);
+  // }
+
+
+}
+
+// export default {
+// setup() {
+// return {
+
+//     };
+//   },
+// };
 </script>
 
 <style scoped>
